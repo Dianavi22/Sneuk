@@ -9,12 +9,14 @@ public class Ladder : MonoBehaviour
     private bool isInRange; //être à porté
     private PlayerMovement playerMovement; 
     public BoxCollider2D topCollider;
-   
+    public Text interactUI;
+    
+
 
     void Awake()
     {
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        Global.GlobalVariables.interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
+        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
     }
 
     void Update()

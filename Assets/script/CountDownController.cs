@@ -6,9 +6,11 @@ public class CountDownController : MonoBehaviour
 {
     public int countDownTime;
     public Text countDownDisplay;
+
    
     private void Start()
     {
+        
         Global.GlobalVariables.isMoving = false;
         StartCoroutine(CountDownToStart());
         

@@ -8,6 +8,7 @@ public class Global : MonoBehaviour
 
         public static bool isMoving = false;
         public static Text interactUI;
+        
 
     }
 }
