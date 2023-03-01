@@ -2,8 +2,8 @@
 
 public class CurrentSceneManager : MonoBehaviour
 {
-    public bool isPlayerPresentByDefalt = false;
     public int coinsPickedInThisScene;
+    public Vector3 respawnPoint;
 
     public static CurrentSceneManager instance;
 
@@ -16,5 +16,7 @@ public class CurrentSceneManager : MonoBehaviour
         }
 
         instance = this;
+
+        respawnPoint = GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 }

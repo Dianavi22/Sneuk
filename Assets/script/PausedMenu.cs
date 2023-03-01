@@ -72,7 +72,6 @@ public class PausedMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         
-        DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
         Resume();
         SceneManager.LoadScene("MainMenu");
     }
@@ -81,7 +80,6 @@ public class PausedMenu : MonoBehaviour
     public void RestartButton()
     {
         Resume();
-         DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
        
         //   Inventory.instance.RemoveCoins(CurrentSceneManager.instance.coinsPickedInThisScene);
         //   //recharger la scène

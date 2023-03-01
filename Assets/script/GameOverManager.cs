@@ -21,13 +21,7 @@ public class GameOverManager : MonoBehaviour
     }
     public void OnPlayerDeath()
     {
-
-        if(CurrentSceneManager.instance.isPlayerPresentByDefalt)
-        {
-            DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
-        }
-       
-        gameOverUI.SetActive(true);
+         gameOverUI.SetActive(true);    
     }
 
     //recommencer le niveau
@@ -45,7 +39,6 @@ public class GameOverManager : MonoBehaviour
     //retourner au menu principal
     public void MainMenuButton()
     {
-        DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
         SceneManager.LoadScene("MainMenu");
     }
     //quitter le jeu
