@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Chest : MonoBehaviour
 {
-    public Text interactUI;
+   // public Text interactUI;
     private bool isInRange;
     public Animator animator;
     public int coinsToAdd;
@@ -12,7 +12,10 @@ public class Chest : MonoBehaviour
 
     void Awake()
     {
-        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
+        //Global.GlobalVariables.interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
+        Global.GlobalVariables.interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent(typeof(Text)) as Text;
+
+        print(Global.GlobalVariables.interactUI);
 
     }
 
@@ -26,7 +29,7 @@ public class Chest : MonoBehaviour
         Inventory.instance.AddCoins(coinsToAdd);
         AudioManager.instance.PlayClipAt(soundToPlay, transform.position);
         GetComponent<BoxCollider2D>().enabled = false;
-        // interactUI.enabled = false;
+        Global.GlobalVariables.interactUI.enabled = false;
 
     }
 
@@ -34,8 +37,8 @@ public class Chest : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-           // interactUI.text = "OUVRIR LE COFFRE";
-           // interactUI.enabled = true;
+            Global.GlobalVariables.interactUI.text = "OUVRIR LE COFFRE";
+            Global.GlobalVariables.interactUI.enabled = true;
 
             isInRange = true;
             print(isInRange);
@@ -44,7 +47,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Global.GlobalVariables.interactUI.enabled = false;
+        Global.GlobalVariables.interactUI.enabled = false;
 
         isInRange = false;
 
