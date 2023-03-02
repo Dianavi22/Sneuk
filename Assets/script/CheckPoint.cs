@@ -3,11 +3,9 @@
 public class CheckPoint : MonoBehaviour
 {
 
-    [SerializeField]
+    
 
-    private void Awake()
-    {
-    }
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

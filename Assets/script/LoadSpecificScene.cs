@@ -24,6 +24,10 @@ public class LoadSpecificScene : MonoBehaviour
     public IEnumerator loadNextScene()
     {
         AudioManager.instance.PlayClipAt(jingleAchievement, transform.position);
+
+        //Sauvegarder les coins
+        LoadAndSaveData.instance.SaveData();
+
         //Jouer l'animation de fondue au noir + Changer de scène
         fadeSystem.SetTrigger("FadeIn");
         yield return new WaitForSeconds(1f);
