@@ -35,7 +35,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    void DisplayNextSentence()
+   public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
@@ -43,7 +43,18 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(0.05f);
+        }
     }
     void EndDialogue()
     {

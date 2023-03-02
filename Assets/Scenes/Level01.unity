@@ -9110,7 +9110,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 812798306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1875688751}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &812798306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9345,7 +9357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &952793295
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15878,6 +15890,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1582074374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6599405012315407996, guid: bd2d6c9c8b43f5548ad77e3e5d2b826e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6599405012587297626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1787656949
 GameObject:
   m_ObjectHideFlags: 0
@@ -15936,6 +15954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1838967178}
   - component: {fileID: 1838967179}
+  - component: {fileID: 1838967180}
   m_Layer: 0
   m_Name: PNJ01
   m_TagString: Untagged
@@ -15971,18 +15990,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bc72ba3cdd40847871e70aa1f29a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInRange: 0
   dialogue:
     name: OLD MAN
     sentences:
     - IT'S DANGEROUS TO GO ALONE
     - TAKE THIS
+--- !u!61 &1838967180
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838967176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10101318, y: -0.28620517}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6060829, y: 1.5724103}
+  m_EdgeRadius: 0
 --- !u!114 &1875688746 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6599405012315407984, guid: bd2d6c9c8b43f5548ad77e3e5d2b826e,
     type: 3}
   m_PrefabInstance: {fileID: 6599405012587297626}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1582074374}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3a5573b7ce36d54d9e74d5540f4b7c9, type: 3}
@@ -15994,12 +16040,26 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6599405012587297626}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1582074374}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cacf8eaf30993fc4f8ab869b120f3119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1875688751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582074374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288496143c2865840a3b65f3d09a092a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1400628523}
+  dialogueText: {fileID: 1193473247}
 --- !u!1001 &1960793816
 PrefabInstance:
   m_ObjectHideFlags: 0
