@@ -26,14 +26,20 @@ public class Inventory : MonoBehaviour
     public void AddCoins(int count)
     {
         coinsCount += count;
-        coinsCountText.text = coinsCount.ToString();
+        UpdateTextUI();
     }
 
     //Mettre à jour la bourse en enlevant les pièces du niveau et en mettant à jour le visuel
     public void RemoveCoins(int count)
     {
         coinsCount -= count;
+        UpdateTextUI();
+    }
+
+    public void UpdateTextUI()
+    {
         coinsCountText.text = coinsCount.ToString();
+
     }
 
 }
