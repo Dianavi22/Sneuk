@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44da7d86bff82a4c9e7bd247795067b, type: 3}
+  m_Name: SpeedPotion
+  m_EditorClassIdentifier: 
+  id: 2
+  name: Speed Potion
+  description: Potion increasing speed by 200 unites for 10 seconds
+  image: {fileID: 21300000, guid: d267fa448d44e9548a36ad85431428eb, type: 3}
+  hpGiven: 0
+  speedGive: 200
+  speedDuration: 10

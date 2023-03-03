@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections.Generic;
 public class Inventory : MonoBehaviour
 {
 
@@ -10,6 +10,8 @@ public class Inventory : MonoBehaviour
 
     public static Inventory instance;
 
+
+    public List<Item> content = new List<Item>();
     private void Awake()
     {
         if(instance != null)

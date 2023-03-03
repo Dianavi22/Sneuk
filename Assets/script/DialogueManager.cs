@@ -10,9 +10,10 @@ public class DialogueManager : MonoBehaviour
     public Text dialogueText;
     public static DialogueManager instance;
     private Queue<string> sentences;
-
+    public Animator animator;
     private void Awake()
     {
+
         if (instance != null)
         {
             Debug.LogWarning("Il y a plus d'une instance de DialogueManager dans la scène");
@@ -26,6 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        animator.SetBool("isOpen", true);
        nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -56,8 +58,9 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
     }
-    void EndDialogue()
+    public void EndDialogue()
     {
-        print("Fin du dialogue");
+        animator.SetBool("isOpen", false);
+
     }
 }

@@ -18,6 +18,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         
         if (collision.CompareTag("Player")) isInRange = false;
+        DialogueManager.instance.EndDialogue();
     }
 
     void TriggerDialogue()
