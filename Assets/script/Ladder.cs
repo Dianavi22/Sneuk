@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class Ladder : MonoBehaviour
 {
+    [SerializeField] Text interactUI;
 
     private bool isInRange; //être à porté
     private PlayerMovement playerMovement; 
     public BoxCollider2D topCollider;
-    public Text interactUI;
     
 
 
     void Awake()
     {
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        interactUI = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
+        Global.GlobalVariables.Text = GameObject.FindGameObjectWithTag("InteractUI").GetComponent<Text>();
     }
 
     void Update()
@@ -58,8 +58,9 @@ public class Ladder : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            Global.GlobalVariables.interactUI.text = "VOUS POUVEZ UTILISER FACILEMENT CETTE ECHELLE";
-            Global.GlobalVariables.interactUI.enabled = true;
+            print("Player collided");
+            interactUI.enabled = true;
+            interactUI.text = "VOUS POUVEZ UTILISER FACILEMENT CETTE ECHELLE";
             isInRange = true;
         }
 
@@ -70,6 +71,6 @@ public class Ladder : MonoBehaviour
         isInRange = false;
         playerMovement.isClimbing = false;
         topCollider.isTrigger = false;
-        Global.GlobalVariables.interactUI.enabled = false;
+        interactUI.enabled = false;
     }
 }

@@ -8586,7 +8586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207314846}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.35, y: -1.33, z: 0}
+  m_LocalPosition: {x: 31.83, y: -1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8634,6 +8634,7 @@ MonoBehaviour:
   animator: {fileID: 207314847}
   coinsToAdd: 10
   soundToPlay: {fileID: 8300000, guid: 5898707fdb6d0884ca38c8271c1cf877, type: 3}
+  interactUI: {fileID: 1076443153}
 --- !u!1001 &314400693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10055,7 +10056,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 9184447384421562566}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -10092,6 +10093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healOnCollision: 10
   pickupSound: {fileID: 8300000, guid: 9431cfdb724f41f4fa3931874cee1a88, type: 3}
+  interactUI: {fileID: 0}
 --- !u!1001 &1287423053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16792,6 +16794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8991932310827928241, guid: ed247493e43430f43aba9c30388b1ba0,
         type: 3}
+      propertyPath: interactUI
+      value: 
+      objectReference: {fileID: 1076443153}
+    - target: {fileID: 8991932310827928241, guid: ed247493e43430f43aba9c30388b1ba0,
+        type: 3}
       propertyPath: pickupSound
       value: 
       objectReference: {fileID: 8300000, guid: 5898707fdb6d0884ca38c8271c1cf877, type: 3}
@@ -17037,6 +17044,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1875688747}
+    - target: {fileID: 9184447385493782743, guid: 68af00108d8a7554f9fbc682b4c404c0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9184447385545891142, guid: 68af00108d8a7554f9fbc682b4c404c0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
