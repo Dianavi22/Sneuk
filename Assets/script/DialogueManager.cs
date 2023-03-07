@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
     private Queue<string> sentences;
     public Animator animator;
+    public GameObject dialogueUI;
     private void Awake()
     {
 
@@ -21,12 +22,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         instance = this;
-
         sentences = new Queue<string>();
+
+
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+
         animator.SetBool("isOpen", true);
        nameText.text = dialogue.name;
         sentences.Clear();
@@ -61,6 +64,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("isOpen", false);
-
     }
+   
+
 }

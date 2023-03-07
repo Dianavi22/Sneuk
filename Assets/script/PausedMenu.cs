@@ -23,6 +23,7 @@ public class PausedMenu : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (gameIsPaused)

@@ -129,19 +129,30 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isHealing)
         {
-
-            currentHealth += heal;
-            //le joueur ne peut pas avoir de heal si sa vie est au max
-            if(currentHealth > maxHealth)
+            if(heal == 0)
             {
-                currentHealth = maxHealth;
+
             }
-            //mettre à jour le visuel
-            healthBar.SetHealth(currentHealth);
-            //jouer l'animation de heal
-            isHealing = true;
-            StartCoroutine(HealUpFlash());
-            StartCoroutine(HandleHealingDelay());
+            else
+            {
+                currentHealth += heal;
+                //le joueur ne peut pas avoir de heal si sa vie est au max
+                if (currentHealth > maxHealth)
+                {
+                    currentHealth = maxHealth;
+                }
+                else
+                {
+                    //mettre à jour le visuel
+                    healthBar.SetHealth(currentHealth);
+                    //jouer l'animation de heal
+                    isHealing = true;
+                    StartCoroutine(HealUpFlash());
+                    StartCoroutine(HandleHealingDelay());
+                }
+            }
+           
+            
         }
 
     }
