@@ -18,4 +18,4 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: d267fa448d44e9548a36ad85431428eb, type: 3}
   hpGiven: 0
   speedGive: 200
-  speedDuration: 10
+  speedDuration: 5

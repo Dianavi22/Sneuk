@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PickUpObject : MonoBehaviour
+public class PickUpCoins : MonoBehaviour
 {
     [SerializeField]
     public int coinValue;

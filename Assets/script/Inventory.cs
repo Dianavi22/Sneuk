@@ -7,11 +7,12 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     public int coinsCount;
     public Text coinsCountText;
-    public int contentCurrentIndex = 0;
+    private int contentCurrentIndex = 0;
     public static Inventory instance;
     public Image itemImageUI;
     public Sprite emptyItemImage;
     public Text itemNameUI;
+    public PlayerEffect playerEffect;
     
 
 
@@ -107,18 +108,14 @@ public class Inventory : MonoBehaviour
         int currentPlayerHealth = PlayerHealth.instance.currentHealth;
         Item currentItem = content[contentCurrentIndex];
         PlayerHealth.instance.TakeHeal(currentItem.hpGiven);
-        PlayerMovement.instance.moveSpeed += currentItem.speedGive;
+        playerEffect.AddSpeed(currentItem.speedGive, currentItem.speedDuration);
         if(currentPlayerMove != PlayerMovement.instance.moveSpeed || currentPlayerHealth != PlayerHealth.instance.currentHealth)
         {
-            print(currentPlayerHealth + " = ? " + PlayerHealth.instance.currentHealth);
-            print(currentPlayerMove + " = ? " + PlayerMovement.instance.moveSpeed);
             content.Remove(currentItem);
             GetPreviousItem();
         }
         else
         {
-            print("Les states sont les mêmes");
-
 
         }
 

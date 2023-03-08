@@ -2,32 +2,29 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Chest : MonoBehaviour
+public class PickUpItem : MonoBehaviour
 {
     private bool isInRange;
-    public Animator animator;
-    public int coinsToAdd;
     public AudioClip soundToPlay;
     [SerializeField] Text interactUI;
+    public Item item;
 
     void Awake()
     {
-       
+
 
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInRange == true) OpenChest();
+        if (Input.GetKeyDown(KeyCode.E) && isInRange == true) TakeItem();
     }
-    void OpenChest()
+    void TakeItem()
     {
-        animator.SetTrigger("OpenChest");
-        Inventory.instance.AddCoins(coinsToAdd);
+        Inventory.instance.content.Add(item);
+        Inventory.instance.UpdateInventoryUI();
         AudioManager.instance.PlayClipAt(soundToPlay, transform.position);
-        GetComponent<BoxCollider2D>().enabled = false;
-        interactUI.enabled = false;
-
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,7 +33,7 @@ public class Chest : MonoBehaviour
         {
             interactUI.enabled = true;
 
-            interactUI.text = "OUVRIR LE COFFRE";
+            interactUI.text = "TAKE ITEM";
 
             isInRange = true;
             print(isInRange);
@@ -45,9 +42,10 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-       interactUI.enabled = false;
+        interactUI.enabled = false;
 
         isInRange = false;
 
     }
 }
+
