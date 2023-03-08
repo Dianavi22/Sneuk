@@ -9,6 +9,9 @@ public class Inventory : MonoBehaviour
     public Text coinsCountText;
     public int contentCurrentIndex = 0;
     public static Inventory instance;
+    public Image itemImageUI;
+    public Sprite emptyItemImage;
+    public Text itemNameUI;
     
 
 
@@ -24,6 +27,10 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        UpdateInventoryUI();
+    }
 
     //Fonction pour ajouter des pièces à un compteur et mettre à jour le visuel du compteur
     public void AddCoins(int count)
@@ -47,24 +54,54 @@ public class Inventory : MonoBehaviour
 
     public void GetNextItem()
     {
+        if (content.Count == 0)
+        {
+            return;
+        }
         contentCurrentIndex++;
         if(contentCurrentIndex > content.Count - 1)
         {
             contentCurrentIndex = contentCurrentIndex - 1;
         }
+        UpdateInventoryUI();
+
     }
 
     public void GetPreviousItem()
     {
+        if (content.Count == 0)
+        {
+            return;
+        }
         contentCurrentIndex--;
+
         if (contentCurrentIndex < 0)
         {
             contentCurrentIndex = 0;
+        }
+        UpdateInventoryUI();
+    }
+
+    public void UpdateInventoryUI()
+    {
+        if(content.Count > 0)
+        {
+            itemImageUI.sprite = content[contentCurrentIndex].image;
+            itemNameUI.text = content[contentCurrentIndex].name;
+        }
+        else
+        {
+            itemNameUI.text = "";
+            itemImageUI.sprite = emptyItemImage;
         }
     }
 
     public void ConsumeItem()
     {
+        if(content.Count == 0)
+        {
+            return;
+        }
         float currentPlayerMove = PlayerMovement.instance.moveSpeed;
 
         int currentPlayerHealth = PlayerHealth.instance.currentHealth;
