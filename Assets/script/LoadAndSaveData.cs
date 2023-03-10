@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 
 public class LoadAndSaveData : MonoBehaviour
 {
@@ -19,9 +20,23 @@ public class LoadAndSaveData : MonoBehaviour
         Inventory.instance.coinsCount = PlayerPrefs.GetInt("coinsCount", 0);
         Inventory.instance.UpdateTextUI();
 
-       // int currentHealth = PlayerPrefs.GetInt("playerHealth", PlayerHealth.instance.maxHealth);
-       // PlayerHealth.instance.currentHealth = currentHealth;
-       // PlayerHealth.instance.healthBar.SetHealth(currentHealth);
+
+        //Garder la vie du joueur 
+        // int currentHealth = PlayerPrefs.GetInt("playerHealth", PlayerHealth.instance.maxHealth);
+        // PlayerHealth.instance.currentHealth = currentHealth;
+        // PlayerHealth.instance.healthBar.SetHealth(currentHealth);
+
+        string[] itemsSaved = PlayerPrefs.GetString("inventoryItems", "").Split(',');
+        for (int i = 0; i < itemsSaved.Length; i++)
+        {
+            if(itemsSaved[i] != "")
+            {
+                Debug.Log("Item chargé : " + itemsSaved[i]);
+                int id = int.Parse(itemsSaved[i]);
+                Item currentItem = ItemsDatabase.instance.allItems.Single(x => x.id == id);
+                Inventory.instance.content.Add(currentItem);
+            }
+        }
     }
 
     public void SaveData()
@@ -31,7 +46,12 @@ public class LoadAndSaveData : MonoBehaviour
         {
             PlayerPrefs.SetInt("levelReached", CurrentSceneManager.instance.levelToUnlock);
         }
-       // PlayerPrefs.SetInt("playerHealth", PlayerHealth.instance.currentHealth);
+        // PlayerPrefs.SetInt("playerHealth", PlayerHealth.instance.currentHealth);
+
+        //sauvegarde
+        string itemsInInventory = string.Join(",", Inventory.instance.content.Select(x => x.id));
+        PlayerPrefs.SetString("inventoryItems", itemsInInventory);
+        
 
     }
 

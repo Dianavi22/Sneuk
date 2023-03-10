@@ -7348,6 +7348,11 @@ PrefabInstance:
       propertyPath: coinsCountText
       value: 
       objectReference: {fileID: 384817325}
+    - target: {fileID: 4985976673834084674, guid: 27e2b63ad3a680d4d900efec5774b105,
+        type: 3}
+      propertyPath: content.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4985976673834084675, guid: 27e2b63ad3a680d4d900efec5774b105,
         type: 3}
       propertyPath: m_Name

@@ -72,7 +72,7 @@ public class PausedMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        
+        print("Load main menu");
         Resume();
         SceneManager.LoadScene("MainMenu");
     }
