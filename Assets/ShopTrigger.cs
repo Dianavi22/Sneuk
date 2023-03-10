@@ -36,7 +36,8 @@ public class ShopTrigger : MonoBehaviour
             isInRange = false;
             interactUI.enabled = false;
             interactUI.text = "";
+            ShopManager.instance.CloseShop();
+
         }
-       ShopManager.instance.CloseShop();
     }
 }

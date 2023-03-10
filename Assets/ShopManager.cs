@@ -32,9 +32,26 @@ public class ShopManager : MonoBehaviour
 
      void UpdateItemsToSell(Item[] items)
      {
+        //Supprime les boutons présents dans le parent
+        for (int i = 0; i < sellButtonsParent.childCount; i++)
+        {
+            print("JE SUPPRIME");
+            Destroy(sellButtonsParent.GetChild(i).gameObject);
+        }
+
+        //Instancie un bouton à chaque item à vendre et le configure
         for (int i = 0; i < items.Length; i++)
         {
-            Instantiate(sellButtonPrefab, sellButtonsParent);
+            print("J'INSTANCIE");
+
+            GameObject button =  Instantiate(sellButtonPrefab, sellButtonsParent);
+            SellButtonItem buttonScript = button.GetComponent<SellButtonItem>();
+            buttonScript.itemName.text = items[i].name;
+            buttonScript.itemImage.sprite = items[i].image;
+            buttonScript.itemPrice.text = items[i].price.ToString();
+
+            buttonScript.item = items[i];
+            button.GetComponent<Button>().onClick.AddListener(delegate { buttonScript.BuyItem(); });
         }
      }
     public void CloseShop()
